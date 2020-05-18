@@ -83,7 +83,7 @@ bintray {
 publishing {
     publications {
         MyPublication(MavenPublication) {
-            artifact "${buildDir}/outputs/aar/androidLibrary-release.aar"
+            // artifact(bundleReleaseAar)
 //            artifact "${buildDir}/libs/lib-simpleloginet-javadoc.jar"//文件的话不能够直接几个不同后缀名的一起上传
 //            artifact "${buildDir}/libs/lib-simpleloginet-sources.jar"//文件的话不能够直接几个不同后缀名的一起上传
             artifact(sourcesJar)
