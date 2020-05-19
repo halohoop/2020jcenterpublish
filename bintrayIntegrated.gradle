@@ -4,7 +4,7 @@
 //3.reedit project.ext {} or just leave it default;
 
 apply plugin: 'maven-publish'
-apply from: 'https://cdn.jsdelivr.net/gh/halohoop/cdn@latest/github/gradle-mavenizer.gradle'
+apply from: 'https://cdn.jsdelivr.net/gh/halohoop/cdn@latest/utils/gradle/gradle-mavenizer.gradle'
 
 project.ext {
     bintrayUser = "halohoop"
