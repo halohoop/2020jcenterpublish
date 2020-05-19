@@ -33,4 +33,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
-apply from: "../../bintrayIntegrated.gradle"
+// apply from: "../../bintrayIntegrated.gradle"
+apply from: "https://cdn.jsdelivr.net/gh/halohoop/cdn@latest/utils/gradle/bintrayIntegrated.gradle"

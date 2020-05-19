@@ -15,7 +15,8 @@ plugins {
     // id 'org.jetbrains.dokka' version '0.10.1'
 }
 
-apply from: "../bintrayIntegrated.gradle"
+// apply from: "../bintrayIntegrated.gradle"
+apply from: "https://cdn.jsdelivr.net/gh/halohoop/cdn@latest/utils/gradle/bintrayIntegrated.gradle"
 
 project.ext {
     version = "0.0.6"
