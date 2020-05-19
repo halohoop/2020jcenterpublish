@@ -1,10 +1,10 @@
-//
+//How to use"
+//1.Add plugin com.jfrog.bintray, follow https://plugins.gradle.org/plugin/com.jfrog.bintray;
+//2.apply from: "../bintrayIntegrated.gradle";
+//3.reedit project.ext {} or just leave it default;
 
 apply plugin: 'maven-publish'
-apply from: "https://cdn.jsdelivr.net/gh/halohoop/cdn@1.2/utils/gradle/utils.gradle"
-plugins {
-    id "com.jfrog.bintray" version "1.8.5"
-}
+apply from: 'https://cdn.jsdelivr.net/gh/halohoop/cdn@latest/github/gradle-mavenizer.gradle'
 
 project.ext {
     bintrayUser = "halohoop"
@@ -23,7 +23,7 @@ project.ext {
     bintrayPkgUserOrg = project.ext.bintrayUser
     bintrayPkgLicenses = ['Apache-2.0']
     bintrayPkgVcsUrl = "github.com/${project.ext.bintrayUser}/${project.ext.bintrayPkgName}.git"
-    bintrayPkgIssueTrackerUrl = "${project.ext.bintrayPkgVcsUrl}/issue"
+    bintrayPkgIssueTrackerUrl = "github.com/${project.ext.bintrayUser}/${project.ext.bintrayPkgName}/issue"
 
     // bintrayPkgVersionName = project.ext.version
     bintrayPkgVersionDesc = "${project.ext.bintrayPkgName} ${project.ext.version} final"
@@ -33,21 +33,6 @@ project.ext {
 }
 
 project.afterEvaluate {
-    task javadoc0(type: Javadoc) {
-        source = sourceSets.main.allJava
-    }
-
-    task javadocJar(type: Jar, dependsOn: javadoc0) {
-        from "$buildDir/javadoc"
-    //    classifier = 'javadoc'
-        archiveClassifier.set("javadoc")
-    }
-
-    task sourcesJar(type: Jar) {
-        from project.ext.sourceDir
-        archiveClassifier.set("sources")
-    }
-
     def artifactMain = isAndroidProject()? bundleReleaseAar : jar
     def artifactSource = isAndroidProject()? androidSourcesJar : sourcesJar
     def artifactJavadoc = isAndroidProject()? androidJavadocsJar : javadocJar
